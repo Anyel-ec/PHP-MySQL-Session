@@ -9,9 +9,9 @@ if ((isset($user) && isset($contra)) &&
 
     // define database connection parameters
     define('SEVERMAME', 'localhost');
-    define('USERNAME', 'root');
-    define('PASSWORD', 'root');
-    define('DBNAME', 'login');
+    define('USERNAME', 'anyel');
+    define('PASSWORD', 'anyel');
+    define('DBNAME', 'lab1');
 
     // create connection with MySQL
     $conn = new mysqli(SEVERMAME, USERNAME, PASSWORD, DBNAME);

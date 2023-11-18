@@ -6,10 +6,17 @@ session_start();
 $id = $_SESSION['id'];
 $nombre = $_SESSION['usuario'];
 
+// Define database connection parameters
+define('SEVERMAME', 'localhost');
+define('USERNAME', 'anyel');
+define('PASSWORD', 'anyel');
+define('DBNAME', 'lab1');
+
 // Create a new MySQLi connection using previously defined constants
 $conn = new mysqli(SEVERMAME, USERNAME, PASSWORD, DBNAME);
 
-// Generate a query to retrieve the 'ciudad' (city) from the 'usuario' table based on the user's ID
+// Generate a query to retrieve the 'ciudad' (city) from the 
+// 'usuario' table based on the user's ID
 $sql = "SELECT ciudad from usuario where IDUsuario = $id";
 
 // Execute the query and handle errors if any

@@ -1,5 +1,6 @@
 create database Login;
 use login;
+
 CREATE TABLE usuario(
 	IDUsuario int auto_increment primary key, 
     usuario varchar(25),
