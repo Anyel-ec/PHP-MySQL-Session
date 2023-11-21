@@ -28,7 +28,7 @@ if ((isset($user) && isset($contra)) &&
     session_start();
 
     // generate the query to check if data in the database exists
-    $sql = "SELECT * FROM usuario WHERE usuario=? AND contra=?";
+    $sql = "SELECT * FROM usuarios WHERE usuario=? AND contra=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $user, $contra);
     $stmt->execute();
