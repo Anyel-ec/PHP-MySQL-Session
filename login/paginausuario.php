@@ -27,21 +27,70 @@ $row = mysqli_fetch_array($resultado);
 
 // Retrieve the 'ciudad' from the result
 $ciudad = $row['ciudad'];
+$cedula = $row['cedula'];
+$nombreCompleto = $row['nombre'];
+$telefono = $row['telefono'];
+$fotoPath = $row['foto_path'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Page</title>
+    <title>Página de usuario</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black; /* Fondo negro */
+            color: white; /* Texto blanco */
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        img {
+            
+            width: 10%;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-<body>
-    <!-- Display a welcome message with the user's name and city -->
-    <h1>Welcome, <?php echo $nombre . ' ' . $ciudad; ?>!</h1>
 
-    <!-- Provide a link to a script (cerrar.php) to close the session -->
-    <a href="cerrar.php">Logout</a>
+<body class= "bg-dark">
+    <div class="container">
+        <h1 class="mt-4">Bienvenido, <?php echo $nombre . ' ' . $ciudad; ?>!</h1>
+        <div style="text-align: center;">
+            <?php
+            // Verificar si la ruta de la imagen está presente
+            if (!empty($fotoPath)) {
+                echo '<img src="'.$fotoPath. '" alt="Imagen de perfil" class="img-fluid rounded">';
+            } else {
+                echo '<p class="text-danger">Imagen no disponible</p>';
+            }
+            ?>
+        </div>
+ 
+        <p><strong>Cédula: </strong><?php echo $cedula; ?></p>
+        <p><strong>Nombre Completo: </strong><?php echo $nombreCompleto; ?></p>
+        <p><strong>Teléfono: </strong> <?php echo $telefono; ?></p>
+
+        <a href="cerrar.php" class="btn btn-primary">Cerrar Sesión</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
 
+</html>
